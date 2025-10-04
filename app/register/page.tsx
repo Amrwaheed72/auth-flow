@@ -1,14 +1,18 @@
 'use client';
 import { useState, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
-import { loginUser } from '../services/api';
+import { registerUser } from '../services/api';
 import { ShoppingBasket } from 'lucide-react';
 import { Spinner } from '../ui/spinner';
 
 const Page = () => {
     const router = useRouter();
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    const [mobile, setMobile] = useState('');
     const [password, setPassword] = useState('');
+    const [passwordConfirmation, setPasswordConfirmation] = useState('');
+    const [mobile_country_code, setCountryCode] = useState('971');
 
     const [error, setError] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState(false);
@@ -17,20 +21,24 @@ const Page = () => {
         e.preventDefault();
         setError(null);
 
-        // if (password !== passwordConfirmation) {
-        //     setError('Passwords do not match.');
-        //     return;
-        // }
+        if (password !== passwordConfirmation) {
+            setError('Passwords do not match.');
+            return;
+        }
 
         setIsLoading(true);
 
         try {
-            await loginUser({
+            await registerUser({
+                name,
                 email,
+                mobile,
                 password,
+                password_confirmation: passwordConfirmation,
+                mobile_country_code,
             });
             // On success, redirect to the verification page
-            router.push('/');
+            router.push('/verify');
         } catch (err: any) {
             setError(err.message || 'An unexpected error occurred.');
         } finally {
@@ -54,6 +62,24 @@ const Page = () => {
                     >
                         <div className="flex flex-col">
                             <label
+                                htmlFor="name"
+                                className="mb-1 text-sm font-medium text-gray-600"
+                            >
+                                Full Name
+                            </label>
+                            <input
+                                id="name"
+                                name="name"
+                                type="text"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                placeholder="Enter your name"
+                                required
+                                className="w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                            />
+                        </div>
+                        <div className="flex flex-col">
+                            <label
                                 htmlFor="email"
                                 className="mb-1 text-sm font-medium text-gray-600"
                             >
@@ -70,6 +96,47 @@ const Page = () => {
                                 className="w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
                             />
                         </div>
+                        <div className="flex space-x-2">
+                            <div className="flex w-1/3 flex-col">
+                                <label
+                                    htmlFor="countryCode"
+                                    className="mb-1 text-sm font-medium text-gray-600"
+                                >
+                                    Code
+                                </label>
+                                <input
+                                    id="countryCode"
+                                    name="countryCode"
+                                    type="text"
+                                    value={mobile_country_code}
+                                    onChange={(e) =>
+                                        setCountryCode(e.target.value)
+                                    }
+                                    placeholder="+971"
+                                    required
+                                    className="w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                />
+                            </div>
+                            <div className="flex w-2/3 flex-col">
+                                <label
+                                    htmlFor="mobile"
+                                    className="mb-1 text-sm font-medium text-gray-600"
+                                >
+                                    Phone Number
+                                </label>
+                                <input
+                                    id="mobile"
+                                    name="mobile"
+                                    type="tel"
+                                    value={mobile}
+                                    onChange={(e) => setMobile(e.target.value)}
+                                    placeholder="e.g., 0501231100"
+                                    required
+                                    className="w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                />
+                            </div>
+                        </div>
+
                         {/* Password Input */}
                         <div className="flex flex-col">
                             <label
@@ -89,10 +156,34 @@ const Page = () => {
                                 className="w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
                             />
                         </div>
+
+                        {/* Confirm Password Input */}
+                        <div className="flex flex-col">
+                            <label
+                                htmlFor="passwordConfirmation"
+                                className="mb-1 text-sm font-medium text-gray-600"
+                            >
+                                Confirm Password
+                            </label>
+                            <input
+                                id="passwordConfirmation"
+                                name="passwordConfirmation"
+                                type="password"
+                                value={passwordConfirmation}
+                                onChange={(e) =>
+                                    setPasswordConfirmation(e.target.value)
+                                }
+                                placeholder="Confirm your password"
+                                required
+                                className="w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                            />
+                        </div>
+
                         {/* Error Message */}
                         {error && (
                             <p className="text-sm text-red-600">{error}</p>
                         )}
+
                         {/* Submit Button */}
                         <button
                             type="submit"
@@ -102,20 +193,20 @@ const Page = () => {
                             {isLoading ? (
                                 <div className="flex items-center justify-center space-x-2">
                                     <Spinner size="sm" variant="ring" />
-                                    <span>Logging</span>
+                                    <span>Registering</span>
                                 </div>
                             ) : (
-                                'Login'
+                                'Register'
                             )}
                         </button>
                     </form>
                     <div className="mt-4 text-center text-gray-400">
-                        don&apos;t have an account?
+                        Already have an account?
                         <a
-                            href="/register"
+                            href="/login"
                             className="ml-1 font-bold text-blue-600 hover:underline"
                         >
-                            create now
+                            Login
                         </a>
                     </div>
                 </div>
@@ -129,7 +220,7 @@ const Page = () => {
                                 </div>
                             </div>
                             <h3 className="mb-4 text-4xl font-bold">
-                                Welcome Back!
+                                Welcome!
                             </h3>
                             <p className="max-w-xs text-indigo-100">
                                 Join our community and start your journey.
