@@ -3,18 +3,18 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-
 const DashboardPage = () => {
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(true);
-    const user = localStorage.getItem('UserData');
-    const username = user ? JSON.parse(user).name.split(' ')[0] : '';
+    const [name, setName] = useState('initialValue');
     useEffect(() => {
+        const user = localStorage.getItem('UserData');
         const token = localStorage.getItem('authToken');
         if (!token) {
             router.push('/auth/login');
             return;
         }
+        setName(user ? JSON.parse(user).name.split(' ')[0] : '');
         setIsLoading(false);
     }, []);
 
@@ -29,7 +29,7 @@ const DashboardPage = () => {
     return (
         <div className="container mx-auto p-4 sm:p-6 lg:p-8">
             <h1 className="text-2xl font-bold text-gray-800 sm:text-3xl">
-                Welcome, {username}
+                Welcome, {name}
             </h1>
             <p className="mt-2 text-gray-500">
                 This is your main dashboard content.
