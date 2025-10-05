@@ -1,5 +1,5 @@
-Frontend Task: Next.js Authentication Flow & UI Implementation
-This project is a solution to a frontend assessment task, demonstrating a complete user authentication flow and a pixel-perfect UI implementation using Next.js and Tailwind CSS.
+Frontend Task: Next.js Authentication Flow
+This project is a solution to a frontend assessment task, demonstrating a complete user authentication flow using Next.js and Tailwind CSS.
 
 Live Demo
 [https://auth-flow-three-beta.vercel.app/]
