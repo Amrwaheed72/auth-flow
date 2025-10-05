@@ -1,10 +1,10 @@
 'use client';
 import { useState, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
-import { registerUser } from '../services/api';
 import { ShoppingBasket } from 'lucide-react';
-import { Spinner } from '../ui/spinner';
 import { toast } from 'sonner';
+import { registerUser } from '@/app/services/api';
+import { Spinner } from '@/app/ui/spinner';
 
 const Page = () => {
     const router = useRouter();
@@ -44,7 +44,7 @@ const Page = () => {
                 localStorage.setItem('UserData', JSON.stringify(userData));
             }
             toast('Please verify your Email Address, check your inbox');
-            router.push('/verify');
+            router.push('/auth/verify');
         } catch (err: unknown) {
             if (err instanceof Error) {
                 setError(err.message);

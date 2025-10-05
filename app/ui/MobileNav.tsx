@@ -14,11 +14,11 @@ import {
 import React from 'react';
 
 const navLinks = [
-    { href: '/', label: 'Home', icon: <House /> },
-    { href: '/our-category', label: 'Our Category', icon: <Boxes /> },
-    { href: '/about-us', label: 'About Us', icon: <UserRoundSearch /> },
-    { href: '/contact-us', label: 'Contact Us', icon: <Headset /> },
-    { href: '/faqs', label: 'FAQs', icon: <MessageCircleQuestionMark /> },
+    { href: '/main', label: 'Home', icon: <House /> },
+    { href: '/main/our-category', label: 'Our Category', icon: <Boxes /> },
+    { href: '/main/about-us', label: 'About Us', icon: <UserRoundSearch /> },
+    { href: '/main/contact-us', label: 'Contact Us', icon: <Headset /> },
+    { href: '/main/faqs', label: 'FAQs', icon: <MessageCircleQuestionMark /> },
 ];
 
 interface MobileNavProps {

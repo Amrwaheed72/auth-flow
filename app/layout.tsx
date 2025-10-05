@@ -2,8 +2,6 @@ import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
 import './globals.css';
 import { Toaster } from 'sonner';
-import Navbar from './ui/Navbar';
-import BottomNav from './ui/BottomNav';
 
 const roboto = Roboto({
     variable: '--font-robot',
@@ -28,9 +26,7 @@ export default function RootLayout({
                     closeButton={true}
                     position="top-right"
                 />
-                <Navbar />
                 <main className="h-screen">{children}</main>
-                <BottomNav />
             </body>
         </html>
     );

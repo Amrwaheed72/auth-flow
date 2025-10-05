@@ -1,10 +1,10 @@
 'use client';
 import { useState, FormEvent, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { loginUser } from '../services/api';
 import { ShoppingBasket } from 'lucide-react';
-import { Spinner } from '../ui/spinner';
 import { toast } from 'sonner';
+import { loginUser } from '@/app/services/api';
+import { Spinner } from '@/app/ui/spinner';
 
 const Page = () => {
     const router = useRouter();
@@ -17,7 +17,7 @@ const Page = () => {
     useEffect(() => {
         const token = localStorage.getItem('authToken');
         if (token) {
-            router.push('/dashboard');
+            router.push('/main/dashboard');
         }
     }, [router]);
     const handleSubmit = async (e: FormEvent) => {
@@ -35,7 +35,7 @@ const Page = () => {
 
             localStorage.setItem('UserData', JSON.stringify(data.data));
             localStorage.setItem('authToken', data.data.token);
-            router.push('/dashboard');
+            router.push('/main/dashboard');
             toast.success(data.message || 'logged in successfully');
         } catch (err: unknown) {
             if (err instanceof Error) {

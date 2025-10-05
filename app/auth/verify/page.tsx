@@ -2,8 +2,8 @@
 import { useState, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import { KeyRound } from 'lucide-react';
-import { ResendCode, verifyUser } from '../services/api';
 import { toast } from 'sonner';
+import { ResendCode, verifyUser } from '@/app/services/api';
 
 const VerifyPage = () => {
     const router = useRouter();
@@ -17,7 +17,7 @@ const VerifyPage = () => {
         setIsLoading(true);
         try {
             await verifyUser({ code });
-            router.push('/login');
+            router.push('/auth/login');
             toast('Email Verified successfully, please login');
         } catch (err: unknown) {
             if (err instanceof Error) {
@@ -26,7 +26,9 @@ const VerifyPage = () => {
                         'Verification failed. Please check the code and try again.',
                 );
             } else {
-                setError('Verification failed. Please check the code and try again.');
+                setError(
+                    'Verification failed. Please check the code and try again.',
+                );
             }
         } finally {
             setIsLoading(false);
