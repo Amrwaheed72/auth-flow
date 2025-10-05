@@ -17,7 +17,7 @@ const Page = () => {
     useEffect(() => {
         const token = localStorage.getItem('authToken');
         if (token) {
-            router.push('/main/dashboard');
+            router.push('/dashboard');
         }
     }, [router]);
     const handleSubmit = async (e: FormEvent) => {
@@ -35,7 +35,7 @@ const Page = () => {
 
             localStorage.setItem('UserData', JSON.stringify(data.data));
             localStorage.setItem('authToken', data.data.token);
-            router.push('/main/dashboard');
+            router.push('/dashboard');
             toast.success(data.message || 'logged in successfully');
         } catch (err: unknown) {
             if (err instanceof Error) {

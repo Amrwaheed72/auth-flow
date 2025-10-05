@@ -23,11 +23,11 @@ import { logout } from '../services/api';
 import { toast } from 'sonner';
 
 export const navLinks = [
-    { href: '/main', label: 'Home', icon: <House /> },
-    { href: '/main/our-category', label: 'Our Category', icon: <Boxes /> },
-    { href: '/main/about-us', label: 'About Us', icon: <UserRoundSearch /> },
-    { href: '/main/contact-us', label: 'Contact Us', icon: <Headset /> },
-    { href: '/main/faqs', label: 'FAQs', icon: <MessageCircleQuestionMark /> },
+    { href: '/', label: 'Home', icon: <House /> },
+    { href: '/our-category', label: 'Our Category', icon: <Boxes /> },
+    { href: '/about-us', label: 'About Us', icon: <UserRoundSearch /> },
+    { href: '/contact-us', label: 'Contact Us', icon: <Headset /> },
+    { href: '/faqs', label: 'FAQs', icon: <MessageCircleQuestionMark /> },
 ];
 
 const Navbar = () => {
@@ -46,7 +46,7 @@ const Navbar = () => {
         } finally {
             localStorage.removeItem('authToken');
             localStorage.removeItem('user');
-            router.push('/auth/login');
+            router.push('/login');
         }
     };
 

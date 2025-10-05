@@ -15,17 +15,17 @@ import {
 import React from 'react';
 
 const mainNavLinks = [
-    { href: '/main', label: 'Home', icon: <House /> },
-    { href: '/main/our-category', label: 'Category', icon: <Boxes /> },
-    { href: '/main/about-us', label: 'About', icon: <UserRoundSearch /> },
-    { href: '/main/contact-us', label: 'Contact', icon: <Headset /> },
-    { href: '/main/faqs', label: 'FAQs', icon: <MessageCircleQuestionMark /> },
+    { href: '/', label: 'Home', icon: <House /> },
+    { href: '/our-category', label: 'Category', icon: <Boxes /> },
+    { href: '/about-us', label: 'About', icon: <UserRoundSearch /> },
+    { href: '/contact-us', label: 'Contact', icon: <Headset /> },
+    { href: '/faqs', label: 'FAQs', icon: <MessageCircleQuestionMark /> },
 ];
 
 const personalNavLinks = [
-    { href: '/main/notifications', label: 'Alerts', icon: <Bell /> },
-    { href: '/main/favorites', label: 'Favorites', icon: <Heart /> },
-    { href: '/main/dashboard', label: 'Profile', icon: <User /> },
+    { href: '/notifications', label: 'Alerts', icon: <Bell /> },
+    { href: '/favorites', label: 'Favorites', icon: <Heart /> },
+    { href: '/dashboard', label: 'Profile', icon: <User /> },
 ];
 
 const BottomNav = () => {

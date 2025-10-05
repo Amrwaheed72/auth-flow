@@ -11,7 +11,7 @@ const DashboardPage = () => {
         const user = localStorage.getItem('UserData');
         const token = localStorage.getItem('authToken');
         if (!token) {
-            router.push('/auth/login');
+            router.push('/login');
             return;
         }
         setName(user ? JSON.parse(user).name.split(' ')[0] : '');

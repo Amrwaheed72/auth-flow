@@ -1,8 +1,8 @@
 {
     "redirects": [
         {
-            "source": "/main",
-            "destination": "/auth/login",
+            "source": "/",
+            "destination": "/login",
             "permanent": false
         }
     ]

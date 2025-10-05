@@ -44,7 +44,7 @@ const Page = () => {
                 localStorage.setItem('UserData', JSON.stringify(userData));
             }
             toast('Please verify your Email Address, check your inbox');
-            router.push('/auth/verify');
+            router.push('/verify');
         } catch (err: unknown) {
             if (err instanceof Error) {
                 setError(err.message);

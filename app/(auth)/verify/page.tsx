@@ -17,7 +17,7 @@ const VerifyPage = () => {
         setIsLoading(true);
         try {
             await verifyUser({ code });
-            router.push('/auth/login');
+            router.push('/login');
             toast('Email Verified successfully, please login');
         } catch (err: unknown) {
             if (err instanceof Error) {
