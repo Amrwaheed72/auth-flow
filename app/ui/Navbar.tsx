@@ -60,7 +60,7 @@ const Navbar = () => {
                         className="flex items-center gap-2 text-xl font-bold text-gray-800"
                     >
                         <Cloudy className="h-8 w-8 text-rose-400" />
-                        <span className="hidden sm:inline">Tinytales</span>
+                        <span className="">Tinytales</span>
                     </Link>
 
                     <nav className="hidden items-center gap-6 xl:flex">
