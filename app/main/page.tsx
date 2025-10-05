@@ -353,7 +353,7 @@ const ProductDetailPage = () => {
                             >
                                 <div className="aspect-square rounded-md bg-gray-100"></div>
                                 <h3 className="text-sm font-semibold">
-                                    J.VER Women's Dress
+                                    J.VER Women&apos;s Dress
                                 </h3>
                                 <StarRating rating={4.5} count={2193} />
                                 <div className="flex items-baseline gap-2">
