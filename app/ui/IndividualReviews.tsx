@@ -19,7 +19,7 @@ const IndividualReviews = () => {
                 </div>
             ))}
             <div className="mt-8 text-center">
-                <button className="rounded-lg bg-rose-400 px-6 py-2 font-semibold text-white transition hover:bg-gray-200">
+                <button className="rounded-lg bg-blue-600 px-6 py-2 font-semibold text-white transition hover:bg-gray-200">
                     View More Comments
                 </button>
             </div>

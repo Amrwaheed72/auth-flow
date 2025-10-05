@@ -77,7 +77,7 @@ const Page = () => {
                                 onChange={(e) => setEmail(e.target.value)}
                                 placeholder="Enter your email"
                                 required
-                                className="w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:ring-2 focus:ring-rose-400 focus:outline-none"
+                                className="w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:ring-2 focus:ring-blue-600 focus:outline-none"
                             />
                         </div>
                         <div className="flex flex-col">
@@ -95,7 +95,7 @@ const Page = () => {
                                 onChange={(e) => setPassword(e.target.value)}
                                 placeholder="Enter your password"
                                 required
-                                className="w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:ring-2 focus:ring-rose-400 focus:outline-none"
+                                className="w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:ring-2 focus:ring-blue-600 focus:outline-none"
                             />
                         </div>
                         {error && (
@@ -104,7 +104,7 @@ const Page = () => {
                         <button
                             type="submit"
                             disabled={isLoading}
-                            className="focus:ring-opacity-50 w-full rounded-lg bg-rose-400 px-4 py-2 text-white hover:bg-rose-500 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                            className="focus:ring-opacity-50 w-full rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none"
                         >
                             {isLoading ? (
                                 <div className="flex items-center justify-center space-x-2">
@@ -120,7 +120,7 @@ const Page = () => {
                         don&apos;t have an account?
                         <a
                             href="/register"
-                            className="ml-1 font-bold text-rose-400 hover:underline"
+                            className="ml-1 font-bold text-blue-600 hover:underline"
                         >
                             create now
                         </a>
@@ -128,7 +128,7 @@ const Page = () => {
                 </div>
 
                 <div className="relative hidden md:block">
-                    <div className="h-full w-[400px] rounded-r-2xl bg-gradient-to-r from-rose-400 to-rose-500 p-8 text-white md:p-14">
+                    <div className="h-full w-[400px] rounded-r-2xl bg-gradient-to-r from-blue-600 to-blue-700 p-8 text-white md:p-14">
                         <div className="flex h-full flex-col items-center justify-center text-center">
                             <div className="mb-8">
                                 <div className="inline-block animate-bounce rounded-full bg-white/30 p-4">
@@ -139,10 +139,8 @@ const Page = () => {
                                 Welcome Back!
                             </h3>
                             <p className="max-w-xs text-indigo-100">
-                                Join our community and start your journey.
-                                Create an account to get access to all our
-                                amazing features and services. We&apos;re happy
-                                to have you with us!
+                                Log in to access your account, view your orders,
+                                and continue shopping for your favorite items.
                             </p>
                         </div>
                     </div>
