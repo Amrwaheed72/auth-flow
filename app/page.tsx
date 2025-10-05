@@ -3,9 +3,9 @@ import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 const Page = () => {
-    const token = localStorage.getItem('authToken');
     const router = useRouter();
     useEffect(() => {
+        const token = localStorage.getItem('authToken');
         if (!token) router.push('/login');
         if (token) router.push('/dashboard');
     });
