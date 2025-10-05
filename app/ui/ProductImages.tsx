@@ -44,7 +44,7 @@ const ProductImages = () => {
                     <button
                         key={index}
                         onClick={() => setSelectedImageIndex(index)}
-                        className={`relative aspect-square w-full overflow-hidden rounded-md ring-2 ${selectedImageIndex === index ? 'ring-blue-600' : 'ring-transparent'}`}
+                        className={`relative aspect-square w-full overflow-hidden rounded-md ring-2 ${selectedImageIndex === index ? 'ring-rose-500' : 'ring-transparent'}`}
                     >
                         <Image
                             src={img}

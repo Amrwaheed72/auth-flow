@@ -31,11 +31,11 @@ const RatingReviews = () => {
                         >
                             <span className="flex items-center gap-1 text-sm">
                                 {item.stars}{' '}
-                                <Star className="h-4 w-4 fill-blue-500 text-blue-500" />
+                                <Star className="h-4 w-4 fill-rose-300 text-rose-300" />
                             </span>
                             <div className="h-2.5 w-full rounded-full bg-gray-200">
                                 <div
-                                    className="h-2.5 rounded-full bg-blue-500"
+                                    className="h-2.5 rounded-full bg-rose-300"
                                     style={{
                                         width: `${item.percent}%`,
                                     }}
@@ -54,7 +54,7 @@ const RatingReviews = () => {
                         </p>
                         <p className="text-4xl font-bold text-gray-800">3.0K</p>
                     </div>
-                    <button className="hover:bg-opacity-90 flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-blue-600 py-3 text-center font-semibold text-white transition md:w-48">
+                    <button className="hover:bg-opacity-90 flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-rose-400 py-3 text-center font-semibold text-white transition md:w-48">
                         Add Comment <MessageCircle className="h-5 w-5" />
                     </button>
                 </div>

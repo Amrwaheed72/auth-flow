@@ -12,7 +12,7 @@ const ProductDetails = () => {
         <div className="space-y-8">
             <div className="flex items-start justify-between">
                 <div>
-                    <span className="rounded-full border border-blue-400 bg-white px-4 py-2 text-xs text-blue-600">
+                    <span className="rounded-full border border-rose-300 bg-white px-4 py-2 text-xs text-rose-300">
                         T-Shirt
                     </span>
                     <h1 className="mt-2 text-2xl font-bold text-gray-800">
@@ -21,11 +21,11 @@ const ProductDetails = () => {
                     </h1>
                 </div>
                 <div className="flex items-center gap-4">
-                    <button className="rounded-full border border-blue-400 p-2 hover:bg-blue-100">
-                        <ShoppingCart className="h-5 w-5 text-blue-600" />
+                    <button className="rounded-full border border-rose-300 p-2 hover:bg-rose-100">
+                        <ShoppingCart className="h-5 w-5 text-rose-300" />
                     </button>
-                    <button className="rounded-full border border-blue-400 p-2 hover:bg-blue-100">
-                        <Heart className="h-5 w-5 text-blue-600" />
+                    <button className="rounded-full border border-rose-300 p-2 hover:bg-rose-100">
+                        <Heart className="h-5 w-5 text-rose-300" />
                     </button>
                 </div>
             </div>
@@ -50,7 +50,7 @@ const ProductDetails = () => {
                     <label className="text-sm font-medium text-gray-700">
                         Type
                     </label>
-                    <select className="mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 shadow-sm focus:border-blue-600 focus:ring-blue-700 focus:outline-none">
+                    <select className="mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 shadow-sm focus:border-rose-500 focus:ring-rose-500 focus:outline-none">
                         <option>Cotton</option>
                     </select>
                 </div>
@@ -58,7 +58,7 @@ const ProductDetails = () => {
                     <label className="text-sm font-medium text-gray-700">
                         Size
                     </label>
-                    <select className="mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 shadow-sm focus:border-blue-600 focus:ring-blue-700 focus:outline-none">
+                    <select className="mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 shadow-sm focus:border-rose-500 focus:ring-rose-500 focus:outline-none">
                         <option>2xl</option>
                     </select>
                 </div>
@@ -71,7 +71,7 @@ const ProductDetails = () => {
                         <button
                             key={color.name}
                             onClick={() => setSelectedColor(color)}
-                            className={`h-8 w-8 rounded-full ring-2 ring-offset-2 ${selectedColor.name === color.name ? 'ring-blue-600' : 'ring-transparent'}`}
+                            className={`h-8 w-8 rounded-full ring-2 ring-offset-2 ${selectedColor.name === color.name ? 'ring-rose-500' : 'ring-transparent'}`}
                             style={{ backgroundColor: color.hex }}
                             aria-label={color.name}
                         />
@@ -112,7 +112,7 @@ const ProductDetails = () => {
                         </span>
                     </div>
                 </div>
-                <button className="flex h-12 w-full items-center justify-center gap-4 rounded-lg bg-blue-600 py-3 text-center font-semibold text-white transition md:w-60">
+                <button className="flex h-12 w-full items-center justify-center gap-4 rounded-lg bg-rose-400 py-3 text-center font-semibold text-white transition md:w-60">
                     Add To Cart <ShoppingCart className="h-5 w-5" />
                 </button>
             </div>

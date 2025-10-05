@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Frontend Task: Next.js Authentication Flow & UI Implementation
+This project is a solution to a frontend assessment task, demonstrating a complete user authentication flow and a pixel-perfect UI implementation using Next.js and Tailwind CSS.
 
-## Getting Started
+Live Demo
+[https://auth-flow-three-beta.vercel.app/]
 
-First, run the development server:
+Task Overview
+The core requirements for this project were divided into two main parts:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Authentication Flow:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+A Register page to create a new user account.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+An Account Verification page to confirm the user's email with a specific code.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+A Login page for returning users.
 
-## Learn More
+API Integration with the provided Postman collection for all auth endpoints.
 
-To learn more about Next.js, take a look at the following resources:
+Client-side route protection, storing the authentication token in localStorage and redirecting users based on their auth status.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+A simple, protected Dashboard page that greets the logged-in user.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+When the user logout, the token is deleted from localStorage
 
-## Deploy on Vercel
+User Interface (UI):
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Tech Stack
+Framework: Next.js (App Router)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Language: TypeScript
+
+Styling: Tailwind CSS
+
+UI Icons: Lucide React
+
+API Communication: No API
+
+Linting/Formatting: ESLint & Prettier
+
+Deployment: Vercel
+
+Features Implemented
+Full Authentication Cycle: Register -> Verify -> Login -> Dashboard -> Logout.
+
+Client-Side Protected Routes: Unauthenticated users are redirected from protected pages (like /dashboard or the homepage) to the login page.
+
+Auth Route Protection: Authenticated users are redirected away from pages like /login and /register.
+
+Responsive Layouts: All pages, including the complex UI showcase page, are fully responsive across mobile, tablet, and desktop breakpoints.
+
+API Error Handling: User-friendly error messages are displayed on forms when API calls fail.
+
+Loading States: UI elements provide feedback to the user during API requests.
+
+NOTES:
+1-All the api call functions are inside services folder in api.ts file
+2-There are 3 layouts, the first for auth (to hide the navbar for login, register and verify pages), the second for the app layout (to show the navbar in the home page) and the third is the root layout
+3-For better UX, i divided the Navbar into 3, one for desktop and this contains all the nav links, the other two for smaller screen one appear in the bottom of the screen to show the personal links, the other is triggered with the burger icon for the nav links

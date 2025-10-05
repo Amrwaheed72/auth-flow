@@ -20,7 +20,7 @@ const SimilarItems = () => {
                     <button className="rounded-full bg-gray-100 p-2 transition hover:bg-gray-200 disabled:cursor-not-allowed disabled:opacity-50">
                         <ChevronLeft className="h-5 w-5" />
                     </button>
-                    <button className="hover:bg-opacity-90 rounded-full bg-blue-600 p-2 text-white transition disabled:cursor-not-allowed disabled:opacity-50">
+                    <button className="hover:bg-opacity-90 rounded-full bg-rose-400 p-2 text-white transition disabled:cursor-not-allowed disabled:opacity-50">
                         <ChevronRight className="h-5 w-5" />
                     </button>
                 </div>
