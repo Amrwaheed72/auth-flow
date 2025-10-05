@@ -2,12 +2,31 @@ import { Heart, ShoppingCart } from 'lucide-react';
 import Image from 'next/image';
 import StarRating from './StarRating';
 
-const ItemCard = ({ item }) => {
+export type SimilarItemType = {
+    id: number;
+    image: string;
+    title: string;
+    rating: number;
+    reviews: number;
+    price: number;
+    oldPrice: number | null;
+    discount: string | null;
+    colors: string[];
+};
+
+interface ItemCardProps {
+    item: SimilarItemType;
+}
+
+const ItemCard = ({ item }: ItemCardProps) => {
+    const { discount, image, title, price, oldPrice, rating, reviews, colors } =
+        item;
+
     return (
         <div className="group relative w-full overflow-hidden rounded-xl bg-white shadow-[0_4px_25px_rgba(0,0,0,0.05)]">
-            {item.discount && (
+            {discount && (
                 <div className="absolute top-3 left-3 z-10 rounded-md bg-white px-2 py-1 text-xs font-semibold text-rose-500 shadow-sm">
-                    {item.discount}
+                    {discount}
                 </div>
             )}
             <div className="absolute top-3 right-3 z-10 flex flex-col gap-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
@@ -20,8 +39,8 @@ const ItemCard = ({ item }) => {
             </div>
             <div className="relative aspect-[3/4] overflow-hidden">
                 <Image
-                    src={item.image}
-                    alt={item.title}
+                    src={image}
+                    alt={title}
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
@@ -29,21 +48,19 @@ const ItemCard = ({ item }) => {
             <div className="space-y-2 p-4">
                 <p className="text-xs text-gray-500">Dresses</p>
                 <h3 className="truncate text-sm font-semibold text-gray-800">
-                    {item.title}
+                    {title}
                 </h3>
-                <StarRating rating={item.rating} count={item.reviews} />
+                <StarRating rating={rating} count={reviews} />
                 <div className="flex items-baseline gap-2">
-                    <span className="font-bold text-gray-800">
-                        AED {item.price}
-                    </span>
-                    {item.oldPrice && (
+                    <span className="font-bold text-gray-800">AED {price}</span>
+                    {oldPrice && (
                         <span className="text-sm text-gray-400 line-through">
-                            AED {item.oldPrice}
+                            AED {oldPrice}
                         </span>
                     )}
                 </div>
                 <div className="flex items-center gap-2 pt-1">
-                    {item.colors.map((color) => (
+                    {colors.map((color) => (
                         <span
                             key={color}
                             className="h-5 w-5 rounded-full border"

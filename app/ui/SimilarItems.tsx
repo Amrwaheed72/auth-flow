@@ -1,12 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import { ChevronLeft, ChevronRight,  } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-import { similarItems } from '../lib/constants'; 
+import { similarItems } from '../lib/constants';
 import React from 'react';
 import ItemCard from './ItemCard';
-
 
 const SimilarItems = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -53,29 +52,10 @@ const SimilarItems = () => {
                 </div>
             </div>
 
-            <div className="relative hidden overflow-hidden lg:block">
-                <div
-                    className="flex gap-6 transition-transform duration-500 ease-in-out"
-                    style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-                >
+            <div className="relative">
+                <div className="grid grid-cols-2 gap-6 transition-transform duration-500 ease-in-out md:grid-cols-3 lg:grid-cols-4">
                     {similarItems.map((item) => (
-                        <div
-                            key={item.id}
-                            className="w-[calc(20%-1.2rem)] flex-shrink-0"
-                        >
-                            <ItemCard item={item} />
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            <div className="lg:hidden">
-                <div className="flex gap-4 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-                    {similarItems.map((item) => (
-                        <div
-                            key={item.id}
-                            className="w-3/4 flex-shrink-0 sm:w-2/5 md:w-1/3"
-                        >
+                        <div key={item.id} className="">
                             <ItemCard item={item} />
                         </div>
                     ))}
