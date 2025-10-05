@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
     ChevronLeft,
     ChevronRight,
@@ -11,6 +11,7 @@ import {
     Star,
 } from 'lucide-react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 const productImages = [
     '/placeholder-hoodie-blue.jpg',
@@ -49,14 +50,7 @@ const reviews = [
         comment:
             'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed',
     },
-    // ... more reviews
 ];
-
-const similarItems = [
-    // ... mock data for similar items
-];
-
-// --- HELPER COMPONENTS ---
 
 const StarRating = ({ rating, count }: { rating: number; count?: number }) => (
     <div className="flex items-center">
@@ -79,6 +73,14 @@ const ProductDetailPage = () => {
     const [selectedColor, setSelectedColor] = useState(colors[1]);
     const [quantity, setQuantity] = useState(1);
 
+    const router = useRouter(); 
+
+    useEffect(() => {
+        const token = localStorage.getItem('authToken');
+        if (!token) {
+            router.push('/login');
+        }
+    }, [router]);
     const handlePrevImage = () => {
         setSelectedImageIndex((prev) =>
             prev === 0 ? productImages.length - 1 : prev - 1,
