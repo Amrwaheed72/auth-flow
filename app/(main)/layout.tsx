@@ -1,6 +1,4 @@
 import Navbar from '@/app/ui/Navbar';
-import BottomNav from '@/app/ui/BottomNav';
-import Footer from '../ui/Footer';
 
 export default function MainAppLayout({
     children,
@@ -11,8 +9,6 @@ export default function MainAppLayout({
         <>
             <Navbar />
             <main className="pt-16 pb-16">{children}</main>
-            <BottomNav />
-            <Footer />
         </>
     );
 }
