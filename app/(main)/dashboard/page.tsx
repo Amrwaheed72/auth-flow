@@ -53,7 +53,7 @@ const DashboardPage = () => {
     }
 
     return (
-        <div className="container mx-auto h-full p-4 sm:p-6 lg:p-8">
+        <div className="container mx-auto h-[49.7vh] p-4 sm:p-6 lg:p-8">
             <h1 className="text-2xl font-bold text-gray-800 sm:text-3xl">
                 Welcome, {name || 'User'}
             </h1>
