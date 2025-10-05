@@ -1,0 +1,9 @@
+{
+    "redirects": [
+        {
+            "source": "/dashboard",
+            "destination": "/login",
+            "permanent": false
+        }
+    ]
+}

@@ -2,7 +2,6 @@
 
 import {
     Boxes,
-    Cloudy,
     Headset,
     House,
     LogOut,
