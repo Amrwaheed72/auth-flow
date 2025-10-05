@@ -10,24 +10,6 @@ import ItemCard from './ItemCard';
 const SimilarItems = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    // Desktop Carousel Logic
-    const itemsPerPage = 5;
-    const totalPages = Math.ceil(similarItems.length / itemsPerPage);
-    const canGoPrev = currentIndex > 0;
-    const canGoNext = currentIndex < totalPages - 1;
-
-    const handlePrev = () => {
-        if (canGoPrev) {
-            setCurrentIndex(currentIndex - 1);
-        }
-    };
-
-    const handleNext = () => {
-        if (canGoNext) {
-            setCurrentIndex(currentIndex + 1);
-        }
-    };
-
     return (
         <div className="mt-16 border-t pt-8">
             <div className="mb-6 flex items-center justify-between">
@@ -35,18 +17,10 @@ const SimilarItems = () => {
                     Similar Items
                 </h2>
                 <div className="hidden items-center gap-2 lg:flex">
-                    <button
-                        onClick={handlePrev}
-                        disabled={!canGoPrev}
-                        className="rounded-full bg-gray-100 p-2 transition hover:bg-gray-200 disabled:cursor-not-allowed disabled:opacity-50"
-                    >
+                    <button className="rounded-full bg-gray-100 p-2 transition hover:bg-gray-200 disabled:cursor-not-allowed disabled:opacity-50">
                         <ChevronLeft className="h-5 w-5" />
                     </button>
-                    <button
-                        onClick={handleNext}
-                        disabled={!canGoNext}
-                        className="hover:bg-opacity-90 rounded-full bg-[#bc9b98] p-2 text-white transition disabled:cursor-not-allowed disabled:opacity-50"
-                    >
+                    <button className="hover:bg-opacity-90 rounded-full bg-[#bc9b98] p-2 text-white transition disabled:cursor-not-allowed disabled:opacity-50">
                         <ChevronRight className="h-5 w-5" />
                     </button>
                 </div>

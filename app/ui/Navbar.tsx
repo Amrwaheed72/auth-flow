@@ -45,7 +45,7 @@ const Navbar = () => {
             toast.error(`Server logout failed. Reason: ${errorMessage}`);
         } finally {
             localStorage.removeItem('authToken');
-            localStorage.removeItem('UserData'); // Ensure this matches the key you set
+            localStorage.removeItem('UserData');
             router.push('/login');
         }
     };
@@ -54,9 +54,8 @@ const Navbar = () => {
         <>
             <header className="sticky top-0 z-40 w-full border-b border-gray-200 bg-white/95 backdrop-blur-sm">
                 <div className="container mx-auto flex items-center justify-between p-4">
-                    {/* --- THIS IS THE FIX --- */}
                     <Link
-                        href="/" // Changed from "/main" to "/"
+                        href="/"
                         className="flex items-center gap-2 text-xl font-bold text-gray-800"
                     >
                         <Cloudy className="h-8 w-8 text-rose-400" />
@@ -98,13 +97,12 @@ const Navbar = () => {
                             <span>EN</span>
                             <ChevronDown className="h-4 w-4" />
                         </button>
-                        <button
-                            title="logout"
-                            type="button"
+                        <Link
+                            href={'/dashboard'}
                             className="flex items-center gap-1 text-gray-500 hover:text-gray-900"
                         >
                             <User className="h-6 w-6" />
-                        </button>
+                        </Link>
                         <button
                             title="logout"
                             type="button"

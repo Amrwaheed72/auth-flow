@@ -85,7 +85,7 @@ const Page = () => {
                                 onChange={(e) => setName(e.target.value)}
                                 placeholder="Enter your name"
                                 required
-                                className="w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                className="w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:ring-2 focus:ring-rose-400 focus:outline-none"
                             />
                         </div>
                         <div className="flex flex-col">
@@ -103,7 +103,7 @@ const Page = () => {
                                 onChange={(e) => setEmail(e.target.value)}
                                 placeholder="Enter your email"
                                 required
-                                className="w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                className="w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:ring-2 focus:ring-rose-400 focus:outline-none"
                             />
                         </div>
                         <div className="flex space-x-2">
@@ -124,7 +124,7 @@ const Page = () => {
                                     }
                                     placeholder="+971"
                                     required
-                                    className="w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                    className="w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:ring-2 focus:ring-rose-400 focus:outline-none"
                                 />
                             </div>
                             <div className="flex w-2/3 flex-col">
@@ -142,12 +142,11 @@ const Page = () => {
                                     onChange={(e) => setMobile(e.target.value)}
                                     placeholder="e.g., 0501231100"
                                     required
-                                    className="w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                    className="w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:ring-2 focus:ring-rose-400 focus:outline-none"
                                 />
                             </div>
                         </div>
 
-                        {/* Password Input */}
                         <div className="flex flex-col">
                             <label
                                 htmlFor="password"
@@ -163,11 +162,10 @@ const Page = () => {
                                 onChange={(e) => setPassword(e.target.value)}
                                 placeholder="Enter your password"
                                 required
-                                className="w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                className="w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:ring-2 focus:ring-rose-400 focus:outline-none"
                             />
                         </div>
 
-                        {/* Confirm Password Input */}
                         <div className="flex flex-col">
                             <label
                                 htmlFor="passwordConfirmation"
@@ -185,20 +183,18 @@ const Page = () => {
                                 }
                                 placeholder="Confirm your password"
                                 required
-                                className="w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                className="w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:ring-2 focus:ring-rose-400 focus:outline-none"
                             />
                         </div>
 
-                        {/* Error Message */}
                         {error && (
                             <p className="text-sm text-red-600">{error}</p>
                         )}
 
-                        {/* Submit Button */}
                         <button
                             type="submit"
                             disabled={isLoading}
-                            className="focus:ring-opacity-50 w-full rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                            className="focus:ring-opacity-50 w-full rounded-lg bg-rose-400 px-4 py-2 text-white hover:bg-rose-500 focus:ring-2 focus:ring-rose-400 focus:outline-none"
                         >
                             {isLoading ? (
                                 <div className="flex items-center justify-center space-x-2">
@@ -214,7 +210,7 @@ const Page = () => {
                         Already have an account?
                         <a
                             href="/login"
-                            className="ml-1 font-bold text-blue-600 hover:underline"
+                            className="ml-1 font-bold text-rose-400 hover:underline"
                         >
                             Login
                         </a>
@@ -222,7 +218,7 @@ const Page = () => {
                 </div>
 
                 <div className="relative hidden md:block">
-                    <div className="h-full w-[400px] rounded-r-2xl bg-gradient-to-r from-blue-500 to-indigo-600 p-8 text-white md:p-14">
+                    <div className="h-full w-[400px] rounded-r-2xl bg-gradient-to-r from-rose-400 to-rose-500 p-8 text-white md:p-14">
                         <div className="flex h-full flex-col items-center justify-center text-center">
                             <div className="mb-8">
                                 <div className="inline-block animate-bounce rounded-full bg-white/30 p-4">

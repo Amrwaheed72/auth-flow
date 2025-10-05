@@ -1,19 +1,12 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import {  useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import {
-    ChevronLeft,
     ChevronRight,
-    Heart,
-    Minus,
-    Plus,
-    ShoppingCart,
 } from 'lucide-react';
-import Image from 'next/image';
 import RatingReviews from '../ui/RatingReviews';
 import IndividualReviews from '../ui/IndividualReviews';
-import { colors, productImages } from '../lib/constants';
 import SimilarItems from '../ui/SimilarItems';
 import ProductImages from '../ui/ProductImages';
 import ProductDetails from '../ui/ProductDetails';

@@ -42,8 +42,8 @@ const VerifyPage = () => {
         <div className="flex min-h-screen items-center justify-center bg-gray-50">
             <div className="relative m-6 flex w-full max-w-md flex-col items-center rounded-2xl bg-white p-8 shadow-2xl md:p-14">
                 <div className="text-center">
-                    <div className="mb-4 inline-block rounded-full bg-blue-100 p-4">
-                        <KeyRound className="h-10 w-10 text-blue-600" />
+                    <div className="mb-4 inline-block rounded-full bg-rose-100 p-4">
+                        <KeyRound className="h-10 w-10 text-rose-400" />
                     </div>
                     <h1 className="mb-3 text-4xl font-bold">
                         Verify Your Account
@@ -72,7 +72,7 @@ const VerifyPage = () => {
                             placeholder="_ _ _ _ _ _"
                             maxLength={6}
                             required
-                            className="w-full rounded-lg border border-gray-300 px-4 py-3 text-center text-2xl tracking-[.5em] shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                            className="w-full rounded-lg border border-gray-300 px-4 py-3 text-center text-2xl tracking-[.5em] shadow-sm focus:ring-2 focus:ring-rose-400 focus:outline-none"
                         />
                     </div>
 
@@ -85,7 +85,7 @@ const VerifyPage = () => {
                     <button
                         type="submit"
                         disabled={isLoading}
-                        className="focus:ring-opacity-50 w-full rounded-lg bg-blue-600 px-4 py-3 font-semibold text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none disabled:bg-gray-400"
+                        className="focus:ring-opacity-50 w-full rounded-lg bg-rose-400 px-4 py-3 font-semibold text-white hover:bg-rose-500 focus:ring-2 focus:ring-blue-500 focus:outline-none disabled:bg-gray-400"
                     >
                         {isLoading ? 'Verifying...' : 'Verify Account'}
                     </button>
@@ -95,7 +95,7 @@ const VerifyPage = () => {
                     <button
                         type="button"
                         onClick={handleResendCode}
-                        className="ml-1 font-bold text-blue-600 hover:underline"
+                        className="ml-1 font-bold text-rose-400 hover:underline"
                     >
                         Resend
                     </button>

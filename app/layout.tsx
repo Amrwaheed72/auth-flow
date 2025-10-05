@@ -26,7 +26,7 @@ export default function RootLayout({
                     closeButton={true}
                     position="top-right"
                 />
-                <main className="h-screen">{children}</main>
+                <main className="min-h-screen">{children}</main>
             </body>
         </html>
     );
