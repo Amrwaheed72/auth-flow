@@ -37,4 +37,5 @@ API Error Handling: User-friendly error messages are displayed on forms when API
 
 NOTES:
 1-All the api call functions are inside services folder in api.ts file
+
 2-The dashboard is a simple page that displays a welcome message with the name of the logged in user, it also contains a navbar that contains a logout button for testing purposes
