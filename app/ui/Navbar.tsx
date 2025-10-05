@@ -55,7 +55,7 @@ const Navbar = () => {
             <header className="sticky top-0 z-40 w-full border-b border-gray-200 bg-white/95 backdrop-blur-sm">
                 <div className="container mx-auto flex items-center justify-between p-4">
                     <Link
-                        href="/main"
+                        href="/"
                         className="flex items-center gap-2 text-xl font-bold text-gray-800"
                     >
                         <Cloudy className="h-8 w-8 text-rose-400" />
