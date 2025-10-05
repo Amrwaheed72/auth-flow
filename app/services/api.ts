@@ -52,14 +52,16 @@ export const loginUser = async (userData: LoginUserData) => {
 };
 
 export const verifyUser = async (code: VerifyUser) => {
+    const token = localStorage.getItem('authToken');
     try {
         const response = await fetch(`${BASE_URL}/auth/verify-email`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 Accept: 'application/json',
+                Authorization: `Bearer ${token}`,
             },
-            body: JSON.stringify(code),
+            body: JSON.stringify({ token, ...code }),
         });
         const data = await response.json();
         if (!response.ok)
@@ -71,6 +73,8 @@ export const verifyUser = async (code: VerifyUser) => {
     }
 };
 export const ResendCode = async () => {
+    const token = localStorage.getItem('authToken');
+
     try {
         const response = await fetch(
             `${BASE_URL}/auth/verify-email/resend-code`,
@@ -79,8 +83,8 @@ export const ResendCode = async () => {
                 headers: {
                     'Content-Type': 'application/json',
                     Accept: 'application/json',
+                    Authorization: `Bearer ${token}`,
                 },
-                body: JSON.stringify({}),
             },
         );
         const data = await response.json();
@@ -89,6 +93,56 @@ export const ResendCode = async () => {
         return data;
     } catch (error) {
         console.error('Resend Code API Error:', error);
+        throw error;
+    }
+};
+
+export const userData = async () => {
+    const token = localStorage.getItem('authToken');
+    try {
+        const response = await fetch(`${BASE_URL}/auth/user-data`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+                Authorization: `Bearer ${token}`,
+            },
+        });
+        const data = await response.json();
+        if (!response.ok)
+            throw new Error(data.message || 'Failed To Load User Data.');
+        return data;
+    } catch (error) {
+        console.error('Get User DAta API Error:', error);
+        throw error;
+    }
+};
+
+export const logout = async () => {
+    const token = localStorage.getItem('authToken');
+    if (!token) {
+        console.error('Logout failed: No auth token found.');
+        return;
+    }
+    try {
+        const response = await fetch(`${BASE_URL}/auth/logout`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+                Authorization: `Bearer ${token}`,
+            },
+        });
+        const data = await response.json();
+        if (!response.ok) {
+            console.warn(
+                'Server logout failed, but proceeding with client-side logout.',
+            );
+        }
+
+        return data;
+    } catch (error) {
+        console.error('Logout API Error:', error);
         throw error;
     }
 };

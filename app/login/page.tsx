@@ -1,9 +1,10 @@
 'use client';
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { loginUser } from '../services/api';
 import { ShoppingBasket } from 'lucide-react';
 import { Spinner } from '../ui/spinner';
+import { toast } from 'sonner';
 
 const Page = () => {
     const router = useRouter();
@@ -13,26 +14,35 @@ const Page = () => {
     const [error, setError] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState(false);
 
+    useEffect(() => {
+        const token = localStorage.getItem('authToken');
+        if (token) {
+            router.push('/dashboard');
+        }
+    }, [router]);
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
         setError(null);
 
-        // if (password !== passwordConfirmation) {
-        //     setError('Passwords do not match.');
-        //     return;
-        // }
-
         setIsLoading(true);
 
         try {
-            await loginUser({
+            const data = await loginUser({
                 email,
                 password,
             });
-            // On success, redirect to the verification page
-            router.push('/');
-        } catch (err: any) {
-            setError(err.message || 'An unexpected error occurred.');
+            console.log(data);
+
+            localStorage.setItem('UserData', JSON.stringify(data.data));
+            localStorage.setItem('authToken', data.data.token);
+            router.push('/dashboard');
+            toast.success(data.message || 'logged in successfully');
+        } catch (err: unknown) {
+            if (err instanceof Error) {
+                setError(err.message);
+            } else {
+                setError('An unexpected error occurred.');
+            }
         } finally {
             setIsLoading(false);
         }
@@ -70,7 +80,6 @@ const Page = () => {
                                 className="w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
                             />
                         </div>
-                        {/* Password Input */}
                         <div className="flex flex-col">
                             <label
                                 htmlFor="password"
@@ -89,11 +98,9 @@ const Page = () => {
                                 className="w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
                             />
                         </div>
-                        {/* Error Message */}
                         {error && (
                             <p className="text-sm text-red-600">{error}</p>
                         )}
-                        {/* Submit Button */}
                         <button
                             type="submit"
                             disabled={isLoading}

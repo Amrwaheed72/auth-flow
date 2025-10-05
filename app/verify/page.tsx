@@ -3,6 +3,7 @@ import { useState, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import { KeyRound } from 'lucide-react';
 import { ResendCode, verifyUser } from '../services/api';
+import { toast } from 'sonner';
 
 const VerifyPage = () => {
     const router = useRouter();
@@ -17,11 +18,16 @@ const VerifyPage = () => {
         try {
             await verifyUser({ code });
             router.push('/login');
-        } catch (err: any) {
-            setError(
-                err.message ||
-                    'Verification failed. Please check the code and try again.',
-            );
+            toast('Email Verified successfully, please login');
+        } catch (err: unknown) {
+            if (err instanceof Error) {
+                setError(
+                    err.message ||
+                        'Verification failed. Please check the code and try again.',
+                );
+            } else {
+                setError('Verification failed. Please check the code and try again.');
+            }
         } finally {
             setIsLoading(false);
         }

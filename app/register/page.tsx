@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { registerUser } from '../services/api';
 import { ShoppingBasket } from 'lucide-react';
 import { Spinner } from '../ui/spinner';
+import { toast } from 'sonner';
 
 const Page = () => {
     const router = useRouter();
@@ -29,7 +30,7 @@ const Page = () => {
         setIsLoading(true);
 
         try {
-            await registerUser({
+            const { data } = await registerUser({
                 name,
                 email,
                 mobile,
@@ -37,10 +38,19 @@ const Page = () => {
                 password_confirmation: passwordConfirmation,
                 mobile_country_code,
             });
-            // On success, redirect to the verification page
+            if (data && data.token) {
+                const { token, ...userData } = data;
+                localStorage.setItem('authToken', token);
+                localStorage.setItem('UserData', JSON.stringify(userData));
+            }
+            toast('Please verify your Email Address, check your inbox');
             router.push('/verify');
-        } catch (err: any) {
-            setError(err.message || 'An unexpected error occurred.');
+        } catch (err: unknown) {
+            if (err instanceof Error) {
+                setError(err.message);
+            } else {
+                setError('An unexpected error occurred.');
+            }
         } finally {
             setIsLoading(false);
         }
